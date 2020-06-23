@@ -1,59 +1,65 @@
 let fundo;
-let personagem;
-let inimigo;
 let cenario;
-let somDoJogo;
+
+let personagem;
 let player;
+let playerSprite = 128;
+
+let inimigo;
 let enemy;
+let enemySpriteX = 105;
+let enemySpriteY = 100;
+
+let somDoJogo;
 
 const matrizPersonagem = [
   [0, 0],
   [0, 0],
-  [128, 0],
-  [128, 0],
-  [256, 0],
-  [256, 0],
-  [384, 0],
-  [384, 0],
-  [512, 0],
-  [512, 0],
-  [640, 0],
-  [640, 0],
-  [768, 0],
-  [768, 0],
-  [896, 0],
-  [896, 0]
+  [playerSprite, 0],
+  [playerSprite, 0],
+  [playerSprite*2, 0],
+  [playerSprite*2, 0],
+  [playerSprite*3, 0],
+  [playerSprite*3, 0],
+  [playerSprite*4, 0],
+  [playerSprite*4, 0],
+  [playerSprite*5, 0],
+  [playerSprite*5, 0],
+  [playerSprite*6, 0],
+  [playerSprite*6, 0],
+  [playerSprite*7, 0],
+  [playerSprite*7, 0]
 ];
 
 const matrizInimigo = [
   [0, 0],
-  [104, 0],
-  [208, 0],
-  [312, 0],
-  [0, 104],
-  [104, 104],
-  [208, 104],
-  [312, 104],
-  [0, 208],
-  [104, 208],
-  [208, 208],
-  [312, 208],
-  [0, 312],
-  [104, 312],
-  [208, 312],
-  [312, 312],
-  [0, 418],
-  [104, 418],
-  [208, 418],
-  [312, 418],
-  [0, 522],
-  [104, 522],
-  [208, 522],
-  [312, 522],
-  [0, 626],
-  [104, 626],
-  [208, 626],
-  [312, 626],
+  [enemySpriteX, 0],
+  [enemySpriteX*2, 0],
+  [enemySpriteX*3, 0],
+  [0, enemySpriteY],
+  [enemySpriteX, enemySpriteY],
+  [enemySpriteX*2, enemySpriteY],
+  [enemySpriteX*3, enemySpriteY],
+  [0, enemySpriteY*2],
+  [enemySpriteX, enemySpriteY*2],
+  [enemySpriteX*2, enemySpriteY*2],
+  [enemySpriteX*3, enemySpriteY*2],
+  [0, enemySpriteY*3],
+  [enemySpriteX, enemySpriteY*3],
+  [enemySpriteX*2, enemySpriteY*3],
+  [enemySpriteX*3, enemySpriteY*3],
+  [0, enemySpriteY*4],
+  [enemySpriteX, enemySpriteY*4],
+  [enemySpriteX*2, enemySpriteY*4],
+  [enemySpriteX*3, enemySpriteY*4],
+  [0, enemySpriteY*5],
+  [enemySpriteX, enemySpriteY*5],
+  [enemySpriteX*2, enemySpriteY*5],
+  [enemySpriteX*3, enemySpriteY*5],
+  [0, enemySpriteY*6],
+  [enemySpriteX, enemySpriteY*6],
+  [enemySpriteX*2, enemySpriteY*6],
+  [enemySpriteX*3, enemySpriteY*6]
 ];
 
 function preload() {
@@ -66,8 +72,8 @@ function preload() {
 function setup() {
   createCanvas(720, 480);
   cenario = new Cenario(fundo, 5);
-  player = new Personagem(matrizPersonagem, personagem, -20, 290, 256, 256, 128, 128);
-  enemy = new Inimigo(matrizInimigo, inimigo, width-50, 252, 52, 52, 104, 104)
+  player = new Personagem(matrizPersonagem, personagem, -20, 290, playerSprite*2, playerSprite*2, playerSprite, playerSprite);
+  enemy = new Inimigo(matrizInimigo, inimigo, width-60, 417, 32, 32, enemySpriteX, enemySpriteY)
   frameRate(30);
   //somDoJogo.loop();
 }
@@ -77,5 +83,6 @@ function draw() {
   cenario.move();
   player.exibe();
   enemy.exibe();
+  enemy.move();
 }
 
