@@ -5,6 +5,8 @@ let personagem;
 let player;
 let playerSprite = 128;
 let playerEnergy = 5;
+let somaPulos = 0;
+let score = 0;
 
 let inimigo;
 let enemy;
@@ -72,10 +74,16 @@ function draw() {
   enemy.exibe();
   enemy.move();
   player.estaColidindo(enemy);
+
+  if (playerEnergy < 1) {
+    noLoop;
+    alert('Game Over');
+  }
 }
 
 function keyPressed() {
-  if (key === 'ArrowUp') {
+  if (key === 'ArrowUp' && somaPulos < 2) {
     player.pula();
+    somaPulos += 1;
   }
 }

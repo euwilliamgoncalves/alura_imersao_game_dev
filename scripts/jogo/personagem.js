@@ -11,9 +11,6 @@ class Personagem extends Animacao {
     this.velocidadeDoPulo = 0;
     this.gravidade = 3;
 
-    this.colidiu = false;
-
-    
   }
   
   pula() {
@@ -28,20 +25,26 @@ class Personagem extends Animacao {
     if(this.y > this.yInicial){
       this.y = this.yInicial
       this.imagem = this.imagemPadrao;
+      somaPulos = 0;
     }
   }
 
   estaColidindo() {
-    rect(this.x + 130, this.y + 70, 2, this.altura / 3);
-    rect(enemy.x + 8, enemy.y + 5, 3, enemy.altura);
-    const colisao = collideRectRect(this.x + 130, this.y + 70, 2, this.altura / 3, enemy.x + 8, enemy.y, 3, enemy.altura);
 
-    if (colisao == true && this.colidiu == false) {
-      playerEnergy -= 1;
-      console.log(playerEnergy);
+    const colisaoPorCima = collideRectRect(this.x + 100, this.y + 155, this.largura / 4, 10, enemy.x + 8, enemy.y + 10, enemy.largura, 5);
+    const colisao = collideRectRect(this.x + 130, this.y + 70, 2, this.altura / 3, enemy.x + 8, enemy.y + 20, 3, enemy.altura);
+
+    if (colisaoPorCima == true) {
+      score += 100;
+      console.log("Pontos: " + score);
+      enemy.foiAtacado();
     }
-    
-    
+
+    if (colisao == true && colisaoPorCima == false) {
+      playerEnergy -= 1;
+      console.log("Energia: " + playerEnergy);
+    }
+
   }
 
 }
