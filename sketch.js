@@ -61,7 +61,8 @@ function setup() {
   createCanvas(720, 480);
   cenario = new Cenario(fundo, 6);
   player = new Personagem(matrizPersonagem, personagem, -20, 290, playerSprite*2, playerSprite*2, playerSprite, playerSprite);
-  enemy = new Inimigo(matrizInimigo, inimigo, width-60, 362, enemySpriteX * 2.5, enemySpriteY * 2.5, enemySpriteX, enemySpriteY)
+  enemy = new Inimigo(matrizInimigo, inimigo, width-60, 362, enemySpriteX * 2.5, enemySpriteY * 2.5, enemySpriteX, enemySpriteY);
+  pontuacao = new Pontuacao();
   frameRate(30);
   //somDoJogo.loop();
 }
@@ -69,8 +70,13 @@ function setup() {
 function draw() { 
   cenario.exibe();
   cenario.move();
+
   player.exibe();
   player.aplicaGravidade();
+
+  pontuacao.exibePts();
+  pontuacao.exibeVida();
+
   enemy.exibe();
   enemy.move();
   player.estaColidindo(enemy);

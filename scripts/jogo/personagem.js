@@ -35,14 +35,12 @@ class Personagem extends Animacao {
     const colisao = collideRectRect(this.x + 130, this.y + 70, 2, this.altura / 3, enemy.x + 8, enemy.y + 20, 3, enemy.altura);
 
     if (colisaoPorCima == true) {
-      score += 100;
-      console.log("Pontos: " + score);
+      pontuacao.somaPonto();
       enemy.foiAtacado();
     }
 
     if (colisao == true && colisaoPorCima == false) {
-      playerEnergy -= 1;
-      console.log("Energia: " + playerEnergy);
+      pontuacao.tiraVida();
     }
 
   }
