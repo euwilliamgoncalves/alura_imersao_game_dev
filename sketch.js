@@ -49,3 +49,7 @@ function draw() {
 function keyPressed() {
   jogo.keyPressed(key);
 }
+
+function touchStarted() {
+  jogo.touchStarted();
+}

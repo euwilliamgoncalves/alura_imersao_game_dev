@@ -97,4 +97,11 @@ class Jogo {
             somaPulos += 1;                                     // soma a quantidade de pulos
         }
     }
+
+    touchStarted() {
+        if (somaPulos < 2)
+        this.player.pula();                                 // ...ele pula (escopo em personagem.js)
+        playerJumpSound.play()                              // executa som de pulo
+        somaPulos += 1;   
+    }
 }
