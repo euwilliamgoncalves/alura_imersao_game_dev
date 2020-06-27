@@ -1,12 +1,14 @@
 class Personagem extends Animacao {
-  constructor(matriz, imagem, x, y, largura, altura, larguraSprite, alturaSprite){
-      super(matriz, imagem, x, y, largura, altura, larguraSprite, alturaSprite);
+  constructor(imagem, imagemAlt, somDano, obj){
+
+    super(imagem, imagemAlt, somDano, obj);
+
+    var {y} = obj
 
     this.yInicial = y;
-    //this.y = this.yInicial;
 
     this.imagemPadrao = imagem;
-    this.imgJump = loadImage("imagens/personagem/jump.png");
+    this.imgJump = imagemAlt;
     
     this.velocidadeDoPulo = 0;
     this.gravidade = 3;
@@ -29,18 +31,25 @@ class Personagem extends Animacao {
     }
   }
 
-  estaColidindo() {
+  estaColidindo(element) {
 
-    const colisaoPorCima = collideRectRect(this.x + 100, this.y + 155, this.largura / 4, 10, enemy.x + 8, enemy.y + 10, enemy.largura, 5);
-    const colisao = collideRectRect(this.x + 130, this.y + 70, 2, this.altura / 3, enemy.x + 8, enemy.y + 20, 3, enemy.altura);
+    // rect((element.x + element.largura/3), element.y + 10, element.largura / 3, 10)
+    // rect((element.x + element.largura/3), (element.y + element.altura/3), 2, this.altura / 4)
+
+    // rect(this.x + 110, this.y + 155, this.largura / 8, 10)
+    // rect(this.x + 140, this.y + 90, 2, this.altura / 4)
+
+    const colisaoPorCima = collideRectRect(this.x + 110, this.y + 155, this.largura / 8, 10, (element.x + element.largura/3), element.y + 10, element.largura / 3, 10);
+    const colisao = collideRectRect(this.x + 140, this.y + 90, 3, this.altura / 4, (element.x + element.largura/3), (element.y + element.altura/3), 2, this.altura / 4);
 
     if (colisaoPorCima == true) {
       pontuacao.somaPonto();
-      enemy.foiAtacado();
+      element.foiAtacado();
     }
 
-    if (colisao == true && colisaoPorCima == false) {
+    if (colisao == true && colisaoPorCima == false && element.atacado == false) {
       pontuacao.tiraVida();
+      this.somDano.play();
     }
 
   }
