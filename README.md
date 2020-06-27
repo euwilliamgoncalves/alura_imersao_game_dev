@@ -1,37 +1,20 @@
-## Welcome to GitHub Pages
+## KETU - A HUNTER ADVENTURE
 
-You can use the [editor on GitHub](https://github.com/euwilliamgoncalves/alura_imersao_game_dev/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Jogo criado na semana #ImersãoGameDev da Alura
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+A temática foi inspirada em itans (lendas) escritas por Pierre Verger, sobre o Orixá Oxóssi, divindade do panteão nago-iorubá.
 
-### Markdown
+O nome Oxóssi vem do termo iorubá Osoosi que é derivado de Osowusi, que significa "o guardião noturno é popular", "caçador ou guardião popular". 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Após ter matado o grande pássaro das feiticeiras que ameaçava o povo durante a festa da colheita dos inhames com apenas uma flecha e ter livrado o povo de Ketu do feitiço, foi nomeado como Oxóssi e ganhou também o título de deus da caça e o responsável por todo o conhecimento adquirido através da arte de caçar. Devido a esse feito é chamado de Odé que vem do termo iorubá odẹ, que significa "caçador".
 
-```markdown
-Syntax highlighted code block
+### ENREDO DO JOGO
 
-# Header 1
-## Header 2
-### Header 3
+"Após a morte do grande passáro, as feiticeiras invocaram forças do mal para atacarem os arredores de Ketu, impossibilitando o povo de plantar e caçar. E em meio a esses ataques, as flechas de Oxóssi foram misteriosamente roubadas. Nessa jornada, nosso grande caçador terá que enfrentar perigosos inimigos, recuperar suas flechas e enfrentar as feiticeiras, trazendo paz e prosperidade ao povo de Ketu."
 
-- Bulleted
-- List
+### STACK/LINGUAGEM UTILIZADA
 
-1. Numbered
-2. List
+JavaScript
+Biblioteca P5.js
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/euwilliamgoncalves/alura_imersao_game_dev/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### JOGO EM CONSTRUÇÃO
