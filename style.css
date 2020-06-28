@@ -5,3 +5,18 @@ html, body {
 canvas {
   display: block;
 }
+button {
+  background: #5e4113;
+  height: 50px;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 15px;
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+button:hover {
+  background: #825a19
+}

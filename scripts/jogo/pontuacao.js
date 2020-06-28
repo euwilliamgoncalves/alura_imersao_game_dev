@@ -28,7 +28,6 @@ class Pontuacao {
             this.milhar = 0;
             this.ganhaVida();
         }
-        console.log(this.milhar)
     }
 
     tiraVida() {

@@ -3,10 +3,11 @@ class Jogo {
         this.inimigoAtual = 0;
         this.inimigoMapa = [];
         this.arrayInimigos = [];
+        this.cenario;
     }
 
     setup() {
-        cenario = new Cenario(fundo, 6);    // Criando cena sob a classe Cenário (cenario.js)
+        this.cenario = new Cenario(fundo, 6);    // Criando cena sob a classe Cenário (cenario.js)
 
         /* CRIANDO PERSONAGEM - propriedades atribuídas dentro de objeto */
         const playerObj = {
@@ -53,8 +54,8 @@ class Jogo {
 
     draw() {
         /* Exibindo e animando cena */
-        cenario.exibe();
-        cenario.move();
+        this.cenario.exibe();
+        this.cenario.move();
 
         /* Exibindo e animando personagem */
         this.player.exibe();
@@ -83,10 +84,9 @@ class Jogo {
         }
 
         this.player.estaColidindo(inimigo);                     // verifica se há colisão entre o personagem e o inimigo (escopo em personagem.js)
+
         if (this.pontuacao.vidas < 1) {                         // se a energia for menor que 1... (escopo em pontuacao.js)
-            noLoop;                                             // o jogo é interrompido
-            alert('Game Over');                                 // exibida uma mensagem popup
-            location.reload();                                  // clicando em 'Ok' a tela é reiniciada
+            gameOver();                                         // o jogo é interrompido
         }
     }
 
@@ -99,9 +99,21 @@ class Jogo {
     }
 
     touchStarted() {
-        if (somaPulos < 2)
-        this.player.pula();                                 // ...ele pula (escopo em personagem.js)
-        playerJumpSound.play()                              // executa som de pulo
-        somaPulos += 1;   
+        if (gameEnded === true) {
+            window.location.reload();
+        }else{
+            if (somaPulos < 2)
+            this.player.pula();                                 // ...ele pula (escopo em personagem.js)
+            playerJumpSound.play()                              // executa som de pulo
+            somaPulos += 1;   
+        }
     }
+
+    mouseClicked() {
+        if (gameEnded === true) {
+            window.location.reload();
+        } 
+    }
+
 }
+
